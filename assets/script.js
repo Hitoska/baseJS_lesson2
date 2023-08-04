@@ -1,57 +1,65 @@
-// задание 1
-let num1 = prompt('Задание 1. Введите первое число');
-let num2 = prompt('Задание 1. Веддите второе число');
-
-if (num1 <= 1 && num2 >= 3) {
-    alert(`Все верно! 
-       num1 = ${num1} <= 1 
-    и num2 = ${num2} >= 3`);
+// задание 1 ---------------------------------------------------------------------
+// не совсем поняла что значит "переданное значение"
+// сделала по-простому БЕЗ prompt()
+function numCubing(numForCubing) {
+    return numForCubing**3;
 }
-else {
-    alert(`Условия не выполнены! Повторите ввод!
-Подсказка: первое число <= 1 и второе число > =3`);
+console.log('----- задание 1 -----');
+console.log(`Сумма двух чисел возведенных в куб: ${numCubing(2)} (2^3) + ${numCubing(3)} (3^3) = ${numCubing(2) + numCubing(3)}`);
+
+// задание 2 ---------------------------------------------------------------------
+// хотела сделать со стрелочной функцией, но хз как поставить "толстую стрелку"
+// в гугле не нашла информацию. Мб нужно поставить плагин какой?
+function isThisNumber(numSalary) {
+    return typeof numSalary === 'number' && !isNaN(numSalary);
+}
+function salaryWithoutTax(numSalary) {
+    const pureSalary = numSalary * 0.87;
+    console.log(`Размер заработной платы за вычетом налогов: ${pureSalary}`);
+}
+const numSalary = Number(prompt('Задание 2. Введите число (размер заработной платы)'));
+// Если вводимое значение НЕ число - повторить ввод
+if (isThisNumber(numSalary) != true) {
+    alert('Значение задано неверно!');
     location. reload();
 }
+console.log('----- задание 2 -----');
+salaryWithoutTax(numSalary);
 
-// задание 2
-alert(`Задание 2. Выполение смотрите в логах.
-Сам переписанный оператор: 
-let test = true === true ? console.log('+++') : console.log('---');`);
-let test = true === true ? console.log('+++') : console.log('---');
+// задание 3 ---------------------------------------------------------------------
+function foundMaxNumber(numFirst, numSecond, numThird) {
+    console.log(`Вы ввели числа: ${numFirst}, ${numSecond}, ${numThird}`)
+    return Math.max(numFirst, numSecond, numThird);
+}
+console.log('----- задание 3 -----');
+let maxNumber = foundMaxNumber(Number(prompt('Задание 3. Введите первое число')), 
+                               Number(prompt('Задание 3. Введите второе число')), 
+                               Number(prompt('Задание 3. Введите третье число')));
+console.log(`Наибольшее число из введенных: ${maxNumber}`);
 
-// задание 3
-let day = prompt('Задание 3. Введите дату месяца от 1 31');
-if (day >= 1 && day <= 10) {
-    alert(`${day} число - это первая декада месяца`);
+// задание 4 ---------------------------------------------------------------------
+function numAddition(numFirst, numSecond) {
+    return numFirst + numSecond;
 }
-else if (day > 10 && day <= 20) {
-    alert(`${day} число - это вторая декада месяца`);
+function numSubtraction(numFirst, numSecond) {
+    if (numFirst > numSecond) {
+        return numFirst - numSecond;
+    } else {
+        return numSecond - numFirst;
+    }
 }
-else if (day > 20 && day <= 31) {
-    alert(`${day} число - это третья декада месяца`)
+function numMultiplication(numFirst, numSecond) {
+    return numFirst * numSecond;
 }
-else {
-    alert(`Некорректно число! Повторите ввод`)
-    location. reload();
+function numDivision(numFirst, numSecond) {
+    return numFirst / numSecond;
 }
+// решила числа запрашивать у пользователя
+let numFirst = Number(prompt('Задание 4. Введите первое число'));
+let numSecond = Number(prompt('Задание 4. Введите второе число'));
 
-// задание 4
-let num4 = prompt('Задание 4. Введите число (1-999) для вывода его разрядов');
-if (num4 >= 1 && num4 <= 999) {
-    let uni = num4 % 10; // числа
-    let ex = num4;
-    ex = ex / 10;
-    let tens = ex % 10; // десятки
-    ex = ex / 10;
-    let hundr = ex % 10; // сотни
-    alert(`Число ${num4} содержит:
-    ${Math.trunc(uni)} - единиц
-    ${Math.trunc(tens)} - десятков
-    ${Math.trunc(hundr)} - сотен`);
-} 
-else {
-    alert(`Некорректно число! Повторите ввод`)
-    location. reload();
-}
-alert(`Спасибо за внимание!`)
-
+console.log('----- задание 4 -----');
+console.log(`Результат сложения чисел: ${numAddition(numFirst, numSecond)}`);
+console.log(`Результат разности чисел: ${numSubtraction(numFirst, numSecond)}`);
+console.log(`Результат умножения чисел: ${numMultiplication(numFirst, numSecond)}`);
+console.log(`Результат деления чисел: ${numDivision(numFirst, numSecond)}`);
