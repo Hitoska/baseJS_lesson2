@@ -1,65 +1,49 @@
 // задание 1 ---------------------------------------------------------------------
-// не совсем поняла что значит "переданное значение"
-// сделала по-простому БЕЗ prompt()
-function numCubing(numForCubing) {
-    return numForCubing**3;
-}
 console.log('----- задание 1 -----');
-console.log(`Сумма двух чисел возведенных в куб: ${numCubing(2)} (2^3) + ${numCubing(3)} (3^3) = ${numCubing(2) + numCubing(3)}`);
+for (let i = 0; i < 12; i++) {
+    if (i === 0)               console.log(`${i} - это ноль`);
+    if (i % 2 === 0 && i > 0)  console.log(`${i} - четное число`);
+    if (i % 2 != 0)            console.log(`${i} - нечетное число`);
+}
 
 // задание 2 ---------------------------------------------------------------------
-// хотела сделать со стрелочной функцией, но хз как поставить "толстую стрелку"
-// в гугле не нашла информацию. Мб нужно поставить плагин какой?
-function isThisNumber(numSalary) {
-    return typeof numSalary === 'number' && !isNaN(numSalary);
-}
-function salaryWithoutTax(numSalary) {
-    const pureSalary = numSalary * 0.87;
-    console.log(`Размер заработной платы за вычетом налогов: ${pureSalary}`);
-}
-const numSalary = Number(prompt('Задание 2. Введите число (размер заработной платы)'));
-// Если вводимое значение НЕ число - повторить ввод
-if (isThisNumber(numSalary) != true) {
-    alert('Значение задано неверно!');
-    location. reload();
-}
 console.log('----- задание 2 -----');
-salaryWithoutTax(numSalary);
+const arrayTaskTwo = [1, 2, 3, 4, 5, 6, 7];
+console.log(`Массив до удаления: ${arrayTaskTwo}`); // [1, 2, 3, 4, 5, 6, 7]
+arrayTaskTwo.splice(3, 2); // начиная с индекса 3, удалить 2 элемента
+console.log(`Массив после удаления: ${arrayTaskTwo}`); // [1, 2, 3, 6, 7]
 
 // задание 3 ---------------------------------------------------------------------
-function foundMaxNumber(numFirst, numSecond, numThird) {
-    console.log(`Вы ввели числа: ${numFirst}, ${numSecond}, ${numThird}`)
-    return Math.max(numFirst, numSecond, numThird);
-}
 console.log('----- задание 3 -----');
-let maxNumber = foundMaxNumber(Number(prompt('Задание 3. Введите первое число')), 
-                               Number(prompt('Задание 3. Введите второе число')), 
-                               Number(prompt('Задание 3. Введите третье число')));
-console.log(`Наибольшее число из введенных: ${maxNumber}`);
 
-// задание 4 ---------------------------------------------------------------------
-function numAddition(numFirst, numSecond) {
-    return numFirst + numSecond;
-}
-function numSubtraction(numFirst, numSecond) {
-    if (numFirst > numSecond) {
-        return numFirst - numSecond;
-    } else {
-        return numSecond - numFirst;
+const length = 5;
+const min = 0;
+const max = 9;
+let summArr = 0;
+let minArr = 0;
+let isTreeHere = false;
+const arrayTaskThree = [...Array(length)];
+for (let i = 0; i < arrayTaskThree.length; i++) {
+    arrayTaskThree[i] = Math.floor(Math.random() * (max - min) + min); 
+    summArr = summArr + arrayTaskThree[i]; // Рассчитать сумму элементов этого массива
+    if (arrayTaskThree[i] === 3) { // есть ли в этом массиве число 3
+        isTreeHere = true;
     }
 }
-function numMultiplication(numFirst, numSecond) {
-    return numFirst * numSecond;
-}
-function numDivision(numFirst, numSecond) {
-    return numFirst / numSecond;
-}
-// решила числа запрашивать у пользователя
-let numFirst = Number(prompt('Задание 4. Введите первое число'));
-let numSecond = Number(prompt('Задание 4. Введите второе число'));
+minArr = Math.min(...arrayTaskThree); // поиск минимального числа
+console.log(`Получившийся массив: ${arrayTaskThree}`); 
+console.log(`Сумма элементов массива: ${summArr}`); 
+console.log(`Минимальное число массива: ${minArr}`);
+if (isTreeHere === true) console.log(`В этом массиве ЕСТЬ число 3`);
+if (isTreeHere === false) console.log(`В этом массиве НЕТ числа 3`);
 
+// задание 4 ---------------------------------------------------------------------
 console.log('----- задание 4 -----');
-console.log(`Результат сложения чисел: ${numAddition(numFirst, numSecond)}`);
-console.log(`Результат разности чисел: ${numSubtraction(numFirst, numSecond)}`);
-console.log(`Результат умножения чисел: ${numMultiplication(numFirst, numSecond)}`);
-console.log(`Результат деления чисел: ${numDivision(numFirst, numSecond)}`);
+let elString = 'x';
+let finaleString = '';
+console.log(`1. ${finaleString}`);
+for (let i = 0; i < 19; i++) {
+    finaleString = finaleString + elString;
+    console.log(`${i+2}. ${finaleString}`);
+}
+
